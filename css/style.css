@@ -1,0 +1,15 @@
+body {
+	transition: background-image 1s linear;
+	background-color: #323232;
+	color: white;
+}
+
+p {
+	font-size: 1.1em;
+}
+
+a{
+	transition: color 1s;
+}
+
+
