@@ -1,6 +1,7 @@
 body {
-	transition: background-image 1s linear;
 	background-color: #323232;
+	font-family: 'Fixedsys', monospace;
+	transition: background-image 1s linear;
 	color: white;
 }
 
@@ -9,7 +10,30 @@ p {
 }
 
 a{
-	transition: color 1s;
+  color: lightblue;
+	transition: color 2s;
 }
 
+a:hover{
+  color: orange;
+}
+
+.centered{
+  text-align:center;
+}
+
+.section{
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+  margin-top: 50px;
+  padding: 25px;
+	border: thin solid white;
+  border-radius: 25px;
+}
+
+.section img{
+  max-width: 75%;
+  margin: 25px;
+}
 
