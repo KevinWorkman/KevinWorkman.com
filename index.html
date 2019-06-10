@@ -5,8 +5,94 @@
     <title>KW</title>
     <link rel="shortcut icon" href="images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+<script>
+
+let x;
+let y;
+let r;
+let g;
+let b;
+let pg;
+
+function setup() {
+  const cnv = createCanvas(windowWidth, windowHeight);
+  cnv.id('sketch');
+
+  pg = createGraphics(200, 100);
+  x = pg.width / 2;
+  y = pg.height / 2;
+  r = random(0, 255);
+  g = random(0, 255);
+  b = random(0, 255);
+
+  pg.noSmooth();
+  pg.background(32, 0, 0);
+  pg.stroke(255, 0, 0);
+
+  noSmooth();
+}
+
+function draw() {
+
+  const chance = random();
+  if (chance < .25) {
+    y--;
+  }
+  else if (chance < .5) {
+    y++;
+  }
+  else if (chance < .75) {
+    x--;
+  }
+  else {
+    x++;
+  }
+
+  x = wrap(x, 0, pg.width);
+  y = wrap(y, 0, pg.height);
+
+  r += random(-1, 1);
+  g += random(-1, 1);
+  b += random(-1, 1);
+  r = constrain(r, 0, 255);
+  g = constrain(g, 0, 255);
+  b = constrain(b, 0, 255);
+
+  pg.stroke(r, g, b);
+  pg.point(x, y);
+
+  image(pg, 0, 0, width, height);
+}
+
+function mouseMoved() {
+  x = pg.width * (mouseX / width);
+  y = pg.height * (mouseY / height);
+  r = random(0, 255);
+  g = random(0, 255);
+  b = random(0, 255);
+}
+
+function wrap(value, min, max) {
+  if(value < min){
+    value = max;
+  }
+  else if(value > max){
+    value = min;
+  }
+  return value;
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+</script>
+
 	</head>
-	<body>
+	<body id="body">
 		<div class="section centered">
 			<img src="images/pixel-kevin.png" />
       <h2>Hello world!</h2>
@@ -62,6 +148,19 @@
       </ul>
     </div>
 
+    <div class="section">
+      <p>I'd love to talk about coding, outreach, cats, or mentorship.</p>
+
+      <p>The best way to get in touch is by posting on the <a href="https://forum.happycoding.io">HappyCoding.io forum</a>.</p>
+
+      <p>I'm also on <a href="https://twitter.com/KevinAWorkman">Twitter</a>, <a href="https://www.facebook.com/kevinaworkman">Facebook</a>, and <a href="https://www.linkedin.com/in/kevin-workman/">LinkedIn</a>. I post nerdy stuff on Happy Coding's Facebook <a href="https://www.facebook.com/HappyCoding.io/">here</a>.</p> 
+    </div>
+
+    <div class="section">
+      <p>Are you a recruiter? Hi! I'm a software engineer, but I'm especially interested in positions related to education, outreach, mentorship, and improving diversity in tech. My dream job would involve creating and supporting a technical coding curriculum for folks from under-represented groups in tech. (This is what I do in my volunteer work, and I'd love to find a way to get paid to do it.)</p>
+
+      <p>If you have a position like that available- GET AT ME.</p>
+    </div>
 
 	</body>
 </html>

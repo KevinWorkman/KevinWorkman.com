@@ -10,19 +10,20 @@ p {
 }
 
 a{
-  color: lightblue;
+  color: DeepSkyBlue;
 	transition: color 2s;
 }
 
-a:hover{
+a:hover {
   color: orange;
 }
 
-.centered{
+.centered {
   text-align:center;
 }
 
-.section{
+.section {
+  background-color: #323232;
 	width: 600px;
 	margin-left: auto;
 	margin-right: auto;
@@ -32,8 +33,18 @@ a:hover{
   border-radius: 25px;
 }
 
-.section img{
+img {
+  border-radius: 25px;
+}
+
+.section img {
   max-width: 75%;
   margin: 25px;
 }
 
+#sketch {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
