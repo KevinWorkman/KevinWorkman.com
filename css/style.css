@@ -1,8 +1,8 @@
 body {
-	background-color: #323232;
-	font-family: 'Fixedsys', monospace;
-	transition: background-image 1s linear;
+	background-color: black;
 	color: white;
+  font-family: 'Fixedsys', monospace;
+  min-width: 650px;
 }
 
 p {
@@ -24,7 +24,8 @@ a:hover {
 
 .section {
   background-color: #323232;
-	width: 600px;
+  width: 75%;
+	max-width: 600px;
 	margin-left: auto;
 	margin-right: auto;
   margin-top: 50px;

@@ -3,15 +3,13 @@
 	<head>
 	  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>KW</title>
     <link rel="shortcut icon" href="images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
 <script>
-
-//if (!/Mobi|Android/i.test(navigator.userAgent)) {
 let x;
 let y;
 let r;
@@ -39,15 +37,7 @@ function setup() {
   
 }
 
-var minFrameRate = 60;
-var maxFrameRate = 0;
-
 function draw() {
-
-  if(frameCount > 10 && frameRate() < 25){
-    //noLoop();
-  }
-
   const chance = random();
   if (chance < .25) {
     y--;
@@ -76,25 +66,6 @@ function draw() {
   pg.point(x, y);
 
   image(pg, 0, 0, width, height);
-
- 
-  let fr = frameRate();
-  if(frameCount > 10){
-  if(fr < minFrameRate){
-    minFrameRate = fr;
-  }
-  if(fr > maxFrameRate){
-    maxFrameRate = fr;
-  }
-}
-
-  fill(0);
-  rect(0, 0, 100, 100);
-  fill(255);
-  stroke(255);
-  text(fr, 25, 25);
-  text(minFrameRate, 25, 50);
-  text(maxFrameRate, 25, 75);
 }
 
 function mouseMoved() {
@@ -118,14 +89,12 @@ function wrap(value, min, max) {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
-//}
-
 </script>
 
 	</head>
-	<body id="body">
-		<div class="section centered">
-			<img src="images/pixel-kevin.png" />
+	<body>
+    <div class="section centered">
+	    <img src="images/pixel-kevin.png" />
       <h2>Hello world!</h2>
 
       <p>I'm Kevin. I believe that code is more than just ones and zeroes. I believe programming is a <strong>craft</strong> that involves as much creativity as any other form of art. I'm a proponent of the <a href="https://en.wikipedia.org/wiki/Worse_is_better">worse is better</a> philosophy, and I think making things easier to understand is better than making things more complicated.<p>
