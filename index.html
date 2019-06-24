@@ -10,6 +10,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
 <script>
 
+//if (!/Mobi|Android/i.test(navigator.userAgent)) {
+  
+
+
 let x;
 let y;
 let r;
@@ -33,10 +37,17 @@ function setup() {
   pg.stroke(255, 0, 0);
 
   noSmooth();
-  noLoop();
+  
 }
 
+var minFrameRate = 60;
+var maxFrameRate = 0;
+
 function draw() {
+
+  if(frameCount > 10 && frameRate() < 25){
+    //noLoop();
+  }
 
   const chance = random();
   if (chance < .25) {
@@ -66,6 +77,25 @@ function draw() {
   pg.point(x, y);
 
   image(pg, 0, 0, width, height);
+
+ 
+  let fr = frameRate();
+  if(frameCount > 10){
+  if(fr < minFrameRate){
+    minFrameRate = fr;
+  }
+  if(fr > maxFrameRate){
+    maxFrameRate = fr;
+  }
+}
+
+  fill(0);
+  rect(0, 0, 100, 100);
+  fill(255);
+  stroke(255);
+  text(fr, 25, 25);
+  text(minFrameRate, 25, 50);
+  text(maxFrameRate, 25, 75);
 }
 
 function mouseMoved() {
@@ -89,6 +119,7 @@ function wrap(value, min, max) {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
+//}
 
 </script>
 
