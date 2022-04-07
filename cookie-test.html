@@ -24,11 +24,11 @@
         let properties = document.cookie.split(';');
         for(let property of properties) {
           // Remove any extra whitespace
-          property = cookie.trim();
+          property = property.trim();
           // Does the property start with the cookie name?
           if(property.startsWith(cookieName)) {
             // If so, we found the cookie!
-            let cookieValue = cookie.split('=')[1];
+            let cookieValue = property.split('=')[1];
             return cookieValue;
           }
         }
@@ -38,6 +38,9 @@
     </script>
   </head>
   <body onload="loadCookies();">
+    <p>This page lets you save and load a cookie!</p>
+    <p>Enter a name below and then refresh the page!</p>
+
     <p>Cookies:</p>
     <p id="cookies"></p>
 
