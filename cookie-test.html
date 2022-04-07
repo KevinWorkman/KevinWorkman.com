@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function loadCookies() {
+        let cookiesEl = document.getElementById('cookies');
+        cookiesEl.innerText = document.cookie;
+
+        let nameCookie = getCookie('name');
+        let nameOutputElement = document.getElementById('name-output');
+        nameOutputElement.innerText = nameCookie;
+      }
+
+      function saveCookies() {
+        let nameInputEl = document.getElementById('name-input');
+        let name = nameInputEl.value;
+        document.cookie = 'name=' + name;
+
+        console.log('c: ' + document.cookie);
+      }
+
+      function getCookie(cookieName){
+        let cookies = document.cookie.split(';');
+        for(let cookie of cookies) {
+          console.log('c: ' + cookie);
+          cookie = cookie.trim();
+          if(cookie.startsWith(cookieName)) {
+            let cookieValue = cookie.split('=')[1];
+            return cookieValue;
+          }
+        }
+        return '';
+      }
+    </script>
+  </head>
+  <body onload="loadCookies();">
+    <p>Cookies:</p>
+    <p id="cookies"></p>
+
+    <p>Previously entered name:</p>
+    <p id="name-output"></p>
+
+    <p>Enter a new name:</p>
+    <input id="name-input" />
+    <button onclick="saveCookies();">Save</button>
+  </body>
+</html>
