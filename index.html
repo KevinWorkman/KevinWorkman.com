@@ -16,7 +16,7 @@
       let g;
       let b;
       let pg;
-      
+
       function setup() {
         pixelDensity(1);
         const cnv = createCanvas(windowWidth, windowHeight);
@@ -29,11 +29,11 @@
         r = random(0, 255);
         g = random(0, 255);
         b = random(0, 255);
-      
+
         pg.noSmooth();
         noSmooth();
       }
-      
+
       function draw() {
         const chance = random();
         if (chance < .25) {
@@ -48,23 +48,23 @@
         else {
           x++;
         }
-      
+
         x = wrap(x, 0, pg.width);
         y = wrap(y, 0, pg.height);
-      
+
         r += random(-1, 1);
         g += random(-1, 1);
         b += random(-1, 1);
         r = constrain(r, 0, 255);
         g = constrain(g, 0, 255);
         b = constrain(b, 0, 255);
-      
+
         pg.stroke(r, g, b);
         pg.point(x, y);
-      
+
         image(pg, 0, 0, width, height);
       }
-      
+
       function mousePressed() {
         x = pg.width * (mouseX / width);
         y = pg.height * (mouseY / height);
@@ -72,7 +72,7 @@
         g = random(0, 255);
         b = random(0, 255);
       }
-      
+
       function wrap(value, min, max) {
         if(value < min){
           value = max;
@@ -82,7 +82,7 @@
         }
         return value;
       }
-      
+
       function windowResized() {
         resizeCanvas(windowWidth, windowHeight);
       }
@@ -117,7 +117,7 @@
       <p>But my true love is helping run <a href="https://buildyourfuture.withgoogle.com/programs/softwareproductsprint/">Software Product Sprint</a> (formerly called CodeU) in my "20%" time.</p>
 
       <p>I write a lot of the <a href="https://github.com/google/software-product-sprint">curriculum and example projects</a> that the program uses. I'd love to do something like  this full-time, but for now I do it mostly on nights and weekends.</p>
-      
+
       <p>You can find more info in these articles written by SPS / CodeU participants:</p>
 
       <ul>
@@ -134,11 +134,11 @@
       <p>The tutorials start with the fundamentals in
         <a href="https://happycoding.io/tutorials/processing">Processing</a> and
         <a href="https://happycoding.io/tutorials/p5js">p5.js</a>, and go through more advanced topics including
-        <a href="https://happycoding.io/tutorials/java">Java</a>, 
-        <a href="https://happycoding.io/tutorials/html">web development</a>, 
+        <a href="https://happycoding.io/tutorials/java">Java</a>,
+        <a href="https://happycoding.io/tutorials/html">web development</a>,
         <a href="https://happycoding.io/tutorials/java-server">server-side coding</a>,
         <a href="https://happycoding.io/tutorials/java-server">Google Cloud</a>,
-        <a href="https://happycoding.io/tutorials/android">Android</a>, and 
+        <a href="https://happycoding.io/tutorials/android">Android</a>, and
         <a href="https://happycoding.io/tutorials/libgdx">libGDX</a>.</p>
 
       <p>Come say hi on the <a href="https://forum.happycoding.io">forum</a>!
@@ -189,7 +189,7 @@
 
       <p>The best way to get in touch is by posting on the <a href="https://forum.happycoding.io">HappyCoding.io forum</a>.</p>
 
-      <p>I'm also on <a href="https://twitter.com/KevinAWorkman">Twitter</a>, <a href="https://www.facebook.com/kevinaworkman">Facebook</a>, and <a href="https://www.linkedin.com/in/kevin-workman/">LinkedIn</a>. I post nerdy stuff on Happy Coding's Facebook <a href="https://www.facebook.com/HappyCoding.io/">here</a>.</p> 
+      <p>I'm also on <a href="https://twitter.com/KevinAWorkman">Twitter</a>, <a href="https://www.facebook.com/kevinaworkman">Facebook</a>, and <a href="https://www.linkedin.com/in/kevin-workman/">LinkedIn</a>. I post nerdy stuff on Happy Coding's Facebook <a href="https://www.facebook.com/HappyCoding.io/">here</a>.</p>
     </div>
 
     <div class="section">
@@ -197,7 +197,7 @@
 
       <div style="position: relative;">
         <iframe style="display: block; width: 75%; margin-left: auto; margin-right: auto"
-          src="https://photos.kevinworkman.com/frame/slideshow?key=Mm3534&autoStart=1&captions=0&navigation=0&playButton=0&randomize=1&speed=3&transition=fade&transitionSpeed=2" 
+          src="https://photos.kevinworkman.com/frame/slideshow?key=Mm3534&autoStart=1&captions=0&navigation=0&playButton=0&randomize=1&speed=3&transition=fade&transitionSpeed=2"
           width="550" height="550" frameborder="no" scrolling="no"></iframe>
         <a href="https://photos.kevinworkman.com" style="position: absolute; top: 0; left: 0; display: inline-block; width: 550px; height: 550px; z-index:5;"></a>
       </div>
@@ -206,7 +206,7 @@
     </div>
 
     <div class="section" style="margin-bottom:25px;">
-      <p>You can check out my resume <a href="/resume.pdf">here</a>.</p>
+      <p>You can check out my resume <a href="/kevin-workman-resume.pdf">here</a>.</p>
 
       <p>I've always had a passion for education, but I've had to "scratch that itch" outside of my software engineering career through mentorship, writing tutorials, and volunteering in my spare time. I'm looking for a job that aligns with my personal values and contains a mix of coding / building, writing curriculum content, and working directly with students and / or teachers.</p>
 
