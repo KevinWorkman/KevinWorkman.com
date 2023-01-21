@@ -35,34 +35,25 @@
       }
 
       function draw() {
-        const chance = random();
-        if (chance < .25) {
-          y--;
-        }
-        else if (chance < .5) {
-          y++;
-        }
-        else if (chance < .75) {
-          x--;
-        }
-        else {
-          x++;
-        }
+        let nextX = x + random(-5, 5);
+        let nextY = y + random(-5, 5);
+        nextX = constrain(nextX, 0, pg.width);
+        nextY = constrain(nextY, 0, pg.height);
 
-        x = wrap(x, 0, pg.width);
-        y = wrap(y, 0, pg.height);
-
-        r += random(-1, 1);
-        g += random(-1, 1);
-        b += random(-1, 1);
+        r += random(-10, 10);
+        g += random(-10, 10);
+        b += random(-10, 10);
         r = constrain(r, 0, 255);
         g = constrain(g, 0, 255);
         b = constrain(b, 0, 255);
 
         pg.stroke(r, g, b);
-        pg.point(x, y);
+        pg.line(nextX, nextY, x, y);
 
         image(pg, 0, 0, width, height);
+
+        x = nextX;
+        y = nextY;
       }
 
       function mousePressed() {
@@ -71,16 +62,6 @@
         r = random(0, 255);
         g = random(0, 255);
         b = random(0, 255);
-      }
-
-      function wrap(value, min, max) {
-        if(value < min){
-          value = max;
-        }
-        else if(value > max){
-          value = min;
-        }
-        return value;
       }
 
       function windowResized() {
@@ -93,15 +74,20 @@
       <img src="images/pixel-kevin.png" />
       <h2>Hello world!</h2>
 
-      <p>I'm Kevin. I believe that code is more than just ones and zeroes. I believe programming is a <strong>craft</strong> that involves as much creativity as any other form of art. I'm a proponent of the <a href="https://en.wikipedia.org/wiki/Worse_is_better">worse is better</a> philosophy, and I think making things easier to understand is better than making things more complicated.<p>
+      <p>I'm Kevin. I believe that code is more than just ones and zeroes. I believe coding is a <strong>craft</strong> that involves as much creativity as any other form of art. I'm a proponent of the <a href="https://en.wikipedia.org/wiki/Worse_is_better">worse is better</a> philosophy, and I think making things easier to understand is better than making things more complicated.<p>
 
-      <p>I support diversity in tech, and I believe we have a responsibility to open the door for new coders- especially those who feel unwelcome, or who might not know how fun it is.</p>
+      <p>I support diversity in tech, and I believe I have a responsibility to open the door for new coders- especially those who feel unwelcome, or who might not know how fun it is.</p>
 
       <p>I'm always looking for ways to get more involved in education, outreach, and mentorship, so please don't hesitate to reach out to me.</p>
     </div>
 
     <div class="section">
-      <p>By day, I'm a software engineer at Google. I'm the tech lead of a team within Google Maps, and here are some articles about projects I've been involved in:</p>
+      <p>By day, I'm a software engineer at
+        <strong><span style="color:#4285f4">G</span><span style="color:#db4437">o</span><span style="color:#f4b400">o</span><span style="color:#4285f4">g</span><span style="color:#0f9d58">l</span><span style="color:#db4437">e</span></strong>.</p>
+
+      <p>I currently work for <strong>engEDU</strong>, where I help build the platforms used by initiatives like <a href="https://csfirst.withgoogle.com/">CS First</a>, <a href="https://applieddigitalskills.withgoogle.com/">Applied Digital Skills</a>, and various internal programs.</p>
+
+      <p>Previously, I was the tech lead of a team within Google Maps. Here are some articles about projects I've been involved in:</p>
 
       <ul>
         <li><a href="https://blog.google/outreach-initiatives/small-business/supporting-black-business-owners/">New ways to support Black-owned businesses</a></li>
@@ -111,14 +97,12 @@
         <li><a href="https://www.searchenginejournal.com/how-to-get-a-business-on-google-before-it-opens-to-the-public/276795/">How to Get a Business on Google Before it Opens to the Public</a></li>
         <li><a href="https://searchengineland.com/you-can-now-add-your-business-description-in-google-my-business-295343">You can now add your business description in Google My Business</a></li>
       </ul>
-    </div>
 
-    <div class="section">
-      <p>But my true love is helping run <a href="https://buildyourfuture.withgoogle.com/programs/softwareproductsprint/">Software Product Sprint</a> (formerly called CodeU) in my "20%" time.</p>
+      <hr>
 
-      <p>I write a lot of the <a href="https://github.com/google/software-product-sprint">curriculum and example projects</a> that the program uses. I'd love to do something like  this full-time, but for now I do it mostly on nights and weekends.</p>
+      <p>I also helped run <a href="https://buildyourfuture.withgoogle.com/programs/softwareproductsprint/">Software Product Sprint</a> (formerly called CodeU) by writing the <a href="https://github.com/google/software-product-sprint">curriculum</a> and projects that the program used from 2017 - 2022.</p>
 
-      <p>You can find more info in these articles written by SPS / CodeU participants:</p>
+      <p>SPS is currently on hiatus, but you can find more info in these articles written by former participants:</p>
 
       <ul>
         <li><a href="https://code.likeagirl.io/my-summer-in-the-google-codeu-engineering-program-475666b322a2">My Summer in the Google CodeU Engineering Program</a></li>
@@ -129,7 +113,13 @@
     </div>
 
     <div class="section">
-      <p>I post coding tutorials and examples at <a href="https://happycoding.io">HappyCoding.io</a>!</p>
+      <p>By night, I'm an adjunct professor at <a href="https://www.millersville.edu/">Millersville University</a>.</p>
+
+      <p>I post all of <a href="https://happycoding.io/teaching/">my class content</a> online, and I'd love to connect with other teachers who want to reuse it in their own classrooms.</p>
+    </div>
+
+    <div class="section">
+      <p>By later night, I post coding tutorials at <a href="https://happycoding.io">HappyCoding.io</a>!</p>
 
       <p>The tutorials start with the fundamentals in
         <a href="https://happycoding.io/tutorials/processing">Processing</a> and
@@ -142,18 +132,19 @@
         <a href="https://happycoding.io/tutorials/libgdx">libGDX</a>.</p>
 
       <p>Come say hi on the <a href="https://forum.happycoding.io">forum</a>!
-    </div>
 
-    <div class="section">
-      <p><p>I also sporadically post random thoughts to the <a href="https://happycoding.io/blog">blog</a>. Here are a few:</p></p>
+      <hr>
+
+      <p><p>I also sporadically post random thoughts to <a href="https://happycoding.io/blog">my blog</a>. Here are a few of my favorites:</p></p>
       <ul>
         <li><a href="https://happycoding.io/blog/checking-my-privilege">Checking My Privilege</a></li>
-        <li><a href="https://happycoding.io/blog/stack-overflow-culture-wars">The Stack Overflow Culture Wars</a></li>
-        <li><a href="https://happycoding.io/blog/the-power-of-boredom">The Power of Boredom</a></li>
+        <li><a href="https://happycoding.io/blog/ten-lessons-senior-software-engineering">Ten Lessons from "Senior" Software Engineering</a></li>
+        <li><a href="https://happycoding.io/blog/ludum-memories">Ludum Memories</a></li>
+        <li><a href="https://happycoding.io/blog/locus-of-control-learned-helplessness">Locus of Control and Learned Helplessness in Coding</a></li>
+        <li><a href="https://happycoding.io/blog/ten-years">Ten Years of Coding on the Internet</a></li>
+        <li><a href="https://happycoding.io/blog/subjective-side-of-code">The Subjective Side of Code</a></li>
         <li><a href="https://happycoding.io/blog/quadrilateral-of-creativity">The Quadrilateral of Creativity</a></li>
-        <li><a href="https://happycoding.io/blog/when-failing-isnt-failure">When Failing isn't Failure</a></li>
-        <li><a href="https://happycoding.io/blog/ludum-dare-and-programming-without-a-computer">Ludum Dare and Programming Without a Computer</a></li>
-        <li><a href="https://happycoding.io/blog/code-can-bring-us-together">Code Can Bring Us Together</a></li>
+        <li><a href="https://happycoding.io/blog/the-power-of-boredom">The Power of Boredom</a></li>
       </ul>
     </div>
 
@@ -185,14 +176,6 @@
     </div>
 
     <div class="section">
-      <p>I love to talk about coding, outreach, cats, and mentorship.</p>
-
-      <p>The best way to get in touch is by posting on the <a href="https://forum.happycoding.io">HappyCoding.io forum</a>.</p>
-
-      <p>I'm also on <a href="https://twitter.com/KevinAWorkman">Twitter</a>, <a href="https://www.facebook.com/kevinaworkman">Facebook</a>, and <a href="https://www.linkedin.com/in/kevin-workman/">LinkedIn</a>. I post nerdy stuff on Happy Coding's Facebook <a href="https://www.facebook.com/HappyCoding.io/">here</a>.</p>
-    </div>
-
-    <div class="section">
       <p>Sometimes I take pictures.</p>
 
       <div style="position: relative;">
@@ -206,11 +189,11 @@
     </div>
 
     <div class="section" style="margin-bottom:25px;">
-      <p>You can check out my resume <a href="/kevin-workman-resume.pdf">here</a>.</p>
+      <p>Here's <a href="/kevin-workman-resume.pdf">my full resume</a>.</p>
 
-      <p>I've always had a passion for education, but I've had to "scratch that itch" outside of my software engineering career through mentorship, writing tutorials, and volunteering in my spare time. I'm looking for a job that aligns with my personal values and contains a mix of coding / building, writing curriculum content, and working directly with students and / or teachers.</p>
+      <p>At this point in my career, I'm not really interested in a traditional software engineering role. I'm more interested in finding a job that aligns with my personal values and contains a mix of coding / building, writing curriculum content, and working directly with students and / or teachers.</p>
 
-      <p>If you have a position like that available- GET AT ME.</p>
+      <p>If you're recruiting for a position like that, GET AT ME.</p>
 
       <p>(kevinaworkman@gmail.com)</p>
     </div>
